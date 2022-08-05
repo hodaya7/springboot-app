@@ -3,9 +3,9 @@ package com.javatpoint.model;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity //כרגע המחלקה הזאת תהפך לטבלה במסד הנתונים
+@Entity 
 public class Borrower {
-    @Id//זה יהיה הקוד של הטבלה
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)//מפתח יגדל בצורה אוטומטית    private Long id;
     private  Long id;
 
@@ -16,7 +16,7 @@ public class Borrower {
     private String mail;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="category_id")//מפתח זר לטבלה
+    @JoinColumn(name="category_id")
     private Category category;
 
     @OneToMany(mappedBy = "borrower")
