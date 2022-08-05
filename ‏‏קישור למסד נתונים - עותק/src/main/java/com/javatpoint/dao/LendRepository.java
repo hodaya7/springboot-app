@@ -12,13 +12,11 @@ public interface LendRepository extends JpaRepository<Lend,Long> {
 
     default List<Lend> findAllByBookId(long bookId){
 
-        //this -הרפוזיטורי
         return this.findAll().stream().filter(len->len.getBook().getId().equals(bookId)).collect(Collectors.toList());
     }
 
     default List<Lend> findAllByBorrowerId(long borrowerId){
 
-        //this -הרפוזיטורי
         return this.findAll().stream().filter(len->len.getBorrower().getId().equals(borrowerId)).collect(Collectors.toList());
     }
 }
