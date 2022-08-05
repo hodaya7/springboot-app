@@ -8,10 +8,8 @@ import java.util.stream.Collectors;
 
 
 public interface  BookRepository extends JpaRepository<Book,Long> {
-     //ממשק שמכיל את כל הפעולות הבסיסיות של crud
     default List<Book> findAllByAge(int age){
 
-        //this -הרפוזיטורי
         return this.findAll().stream().filter(boo->boo.getCategory().equals(age)).collect(Collectors.toList());
     }
 
