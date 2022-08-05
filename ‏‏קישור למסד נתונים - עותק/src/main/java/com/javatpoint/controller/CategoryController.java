@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RequestMapping("api/category") //חלק מהמרכיב של הכתובת
-@RestController//מגדיר את המחלקה להיות קונטרולר
+@RequestMapping("api/category")    
+@RestController
 @CrossOrigin
 public class CategoryController {
 
     public final CategoryRepository repository;
     private MapStructMapper mapStructMapper;
 
-    @Autowired//יוצר את התלות- מכניס אובייקט חדש
+    @Autowired
     public CategoryController(CategoryRepository repository,MapStructMapper mapStructMapper)
     {
         this.repository = repository;
@@ -48,7 +48,7 @@ public class CategoryController {
     @PutMapping("/categories/{id}")
     public CategoryDTO updateCategory(@PathVariable long id, @RequestBody CategoryDTO newCategory) {
 //        Optional<Category> category = repository.findById(id);
-////        if (category.isPresent())//לבדוק אם יש ערך באובייקט
+////        if (category.isPresent())
 ////            category.map(c -> {
 ////                c.setName(newCategory.getName());
 ////                c.setDescription(newCategory.getDescription());
