@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RequestMapping("api/book")//חלק מהמרכיב של הכתובת של המחלקה
-@RestController//מגדיר את המחלקה להיות קונטרולר- מה שגורם לזה לעלות לרשת
+@RequestMapping("api/book")
+@RestController
 @CrossOrigin
 public class BookController {
 
@@ -20,7 +20,6 @@ public class BookController {
     public final BookRepository repository;
     private MapStructMapper mapStructMapper;
 
-    @Autowired//יוצר את התלות- מכניס אובייקט חדש(לרפוזיטורי)
     public BookController(BookRepository repository,MapStructMapper mapStructMapper) {
 
         this.repository = repository;
@@ -55,12 +54,8 @@ public class BookController {
         return mapStructMapper.bookToBookDto(repository.save(mapStructMapper.bookDtoToBook(b)));
     }
 
-    @PutMapping("/books/{id}")//put- תפקידה לעדכן
-    public BookDTO updateBook( @PathVariable long id,@RequestBody BookDTO newBook) {//path- האיי די מתקבל מהנתיב
-                                                   //בפונקציה מסוג פוט, כדי לעדכן אובייקט צריך לשלוח אובייקט חדש עם כל התכונות פלוס התכונה שמעוניינים לעדכן
-        //Optional<Book> book = repository.findById(id);//יש לה שמה אובייקט אולי נאל- וכשנישתמש לא נקבל שגיאה
-//        if (book.isPresent())//לבדוק אם יש ערך באובייקט
-                 //נקבל את הספר שמצאנו
+    @PutMapping("/books/{id}")
+    public BookDTO updateBook( @PathVariable long id,@RequestBody BookDTO newBook) {
 //            book.map(b -> {
 //                        b.setTitle(newBook.getTitle());
 //                        b.setAuthor(newBook.getAuthor());
