@@ -3,10 +3,10 @@ package com.javatpoint.model;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity //כרגע המחלקה הזאת תהפך לטבלה במסד הנתונים
+@Entity 
 public class Category {
-    @Id//זה יהיה הקוד של הטבלה
-    @GeneratedValue(strategy = GenerationType.AUTO)//מפתח יגדל בצורה אוטומטית    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)    private Long id;
     private Long id;
 
     private String name;
