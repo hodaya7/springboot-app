@@ -9,14 +9,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.util.List;
 
-//DTO- Data Transfer Object
-//מחלקה שכל תפקידה זה לתפקד מול הצד לקוח
-
-//למה צריך את זה?
-//*לצורך אבטחה, נוכל לשלוח רק חלק מהשדות
-//לדוגמא להשמיט את שדה הסיסמא ולשלוח רק את השם משתמש
-// *מונע את בעית המעגל האינסופי בקשרי הגומלין
-// *נוכל לשלוח את השדות של הטבלה בדרך שנחליט- לדו באותיות גדולות
 
 public class BookDTO {
     @JsonProperty("id")
