@@ -13,13 +13,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController//מגדיר את המחלקה להיות קונטרולר(מה שגורם לזה לעלות לרשת)
-//- ליגרום לזה לעבוד כשרת, עכשיו זו תהיה מחלקה שאמורה להיות לה כתובת
-//כדי להגדיר איזה כתובת:
-@RequestMapping("api/borrower")//חלק מהמרכיב של הכתובת(ההתחלה זה local host)
+@RestController
+
+@RequestMapping("api/borrower")
 @CrossOrigin
 public class BorrowerController {
-//שנוכל לגשת לפונקציה מתוך הקונטרולר, נסביר לפונק:
 //    @GetMapping(:"myName")
 //public  String getMyName()
 //{
@@ -29,7 +27,6 @@ public class BorrowerController {
     public final BorrowerRepository repository;
     private MapStructMapper mapStructMapper;
 
-    @Autowired//יוצר את התלות- מכניס אובייקט חדש
     public BorrowerController(BorrowerRepository repository,MapStructMapper mapStructMapper)
     {
         this.repository = repository;
@@ -63,7 +60,7 @@ public class BorrowerController {
     @PutMapping("/borrowers/{id}")
     public BorrowerDTO updateBorrower(@PathVariable long id, @RequestBody BorrowerDTO newBorrower) {
 //        Optional<Borrower> borrower = repository.findById(id);
-//        if (borrower.isPresent())//לבדוק אם יש ערך באובייקט
+//        if (borrower.isPresent())
 //            borrower.map(b -> {
 //                b.setTz(newBorrower.getTz());
 //                b.setFirstName(newBorrower.getFirstName());
