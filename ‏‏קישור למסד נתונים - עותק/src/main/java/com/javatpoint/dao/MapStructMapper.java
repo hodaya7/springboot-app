@@ -16,16 +16,13 @@ import javax.persistence.ManyToOne;
 import java.util.List;
 import java.util.Locale;
 
-//הממשק ממיר dto לרגיל ומרגיל לdto
-@Mapper(componentModel="spring")//מסבירים לו שאנו משתמשים בסביבה של ספרינג
+@Mapper(componentModel="spring")//סביבה של ספרינג
 public interface MapStructMapper {
-    //תהיה לנו בעיה כי יש הבדל בין המחלקות אז צריך להסביר לו איך רוצים לערוך את השינויים האלה עם האנוטיישנס
     @Mapping(source = "category.id" ,target = "ageCategory")
     BookDTO bookToBookDto(Book b);//BookDTO
     @Mapping(source = "ageCategory" ,target = "category.id")
     Book bookDtoToBook(BookDTO b);//ולהפך
 
-    //ישתמש בפונקציות שכבר כתבנו
     List<BookDTO> booksToBookDtos(List<Book> books);
 
     @Mapping(source = "category.id" ,target = "ageCategory")
