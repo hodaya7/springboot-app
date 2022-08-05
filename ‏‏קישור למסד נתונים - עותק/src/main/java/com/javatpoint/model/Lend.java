@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 
-@Entity //כרגע המחלקה הזאת תהפך לטבלה במסד הנתונים
+@Entity
 public class Lend {
-    @Id//זה יהיה הקוד של הטבלה
-    @GeneratedValue(strategy =GenerationType.AUTO)//מפתח יגדל בצורה אוטומטית    private Long id;
+    @Id
+    @GeneratedValue(strategy =GenerationType.AUTO)    private Long id;
     private Long id;
 
     private LocalDate lendingDate;
@@ -15,11 +15,11 @@ public class Lend {
 
 
     @ManyToOne
-    @JoinColumn(name = "book_id")//מפתח זר לטבלה
+    @JoinColumn(name = "book_id")
     private Book book;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="borrower_id")//מפתח זר לטבלה
+    @JoinColumn(name="borrower_id")
     private Borrower borrower;
 
     public Lend() {
