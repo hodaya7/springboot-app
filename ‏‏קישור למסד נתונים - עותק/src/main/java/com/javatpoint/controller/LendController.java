@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RequestMapping("api/lend")//חלק מהמרכיב של הכתובת
-@RestController//מגדיר את המחלקה להיות קונטרולר
+@RequestMapping("api/lend")
+@RestController
 @CrossOrigin
 public class LendController {
 
@@ -63,7 +63,7 @@ public class LendController {
     @PutMapping("/lends/{id}")
     public LendDTO updateLend(@PathVariable Long id, @RequestBody LendDTO newLend) {
 //        Optional<Lend> lend = repository.findById(id);
-//        if (lend.isPresent())//לבדוק אם יש ערך באובייקט
+//        if (lend.isPresent())
 //            lend.map(l -> {
 //                l.setLendingDate(newLend.getLendingDate());
 //                l.setReturnDate(newLend.getReturnDate());
