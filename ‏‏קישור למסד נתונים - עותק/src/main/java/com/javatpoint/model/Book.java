@@ -3,9 +3,9 @@ package com.javatpoint.model;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity //כרגע המחלקה הזאת תהפך לטבלה במסד הנתונים
+@Entity
 public class Book {
-    @Id//זה יהיה הקוד של הטבלה
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)//מפתח יגדל בצורה אוטומטית    private Long id;
     private  Long id;
 
@@ -15,7 +15,7 @@ public class Book {
     private  int pageCount;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="category_id")//מפתח זר לטבלה
+    @JoinColumn(name="category_id")
     private Category category;
     @OneToMany(mappedBy = "book")
     private List<Lend> lends;
@@ -85,7 +85,6 @@ public class Book {
     public void setLends(List<Lend> lends) {
         this.lends = lends;
     }
-//    //לא מצליח בהתחלה לעשות כי בתוך ספר יש קטגוריה ובקטגוריה הרבה ספרים אז זה אין סופי
 //    public Category getCategory() {
 //        return category;
 //    }
